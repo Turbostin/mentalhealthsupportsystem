@@ -57,11 +57,23 @@ export default {
           border: "hsl(var(--sidebar-border))",
           ring: "hsl(var(--sidebar-ring))",
         },
+        professional: {
+          bg: "hsl(var(--professional-bg))",
+          text: "hsl(var(--professional-text))",
+          primary: "hsl(var(--professional-primary))",
+          border: "hsl(var(--professional-border))",
+        },
       },
       borderRadius: {
-        lg: "var(--radius)",
-        md: "calc(var(--radius) - 2px)",
-        sm: "calc(var(--radius) - 4px)",
+        lg: "var(--radius-medium)",
+        md: "var(--radius-small)",
+        sm: "var(--radius-small)",
+        chaos: "var(--radius-random)",
+        huge: "var(--radius-large)",
+      },
+      fontFamily: {
+        chaos: ['Comic Sans MS', 'cursive', 'serif', 'monospace'],
+        professional: ['system-ui', 'sans-serif'],
       },
       keyframes: {
         "accordion-down": {
