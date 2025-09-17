@@ -63,16 +63,16 @@ export default {
           primary: "hsl(var(--professional-primary))",
           border: "hsl(var(--professional-border))",
         },
+        success: "hsl(var(--success))",
+        warning: "hsl(var(--warning))",
+        info: "hsl(var(--info))",
       },
       borderRadius: {
-        lg: "var(--radius-medium)",
-        md: "var(--radius-small)",
-        sm: "var(--radius-small)",
-        chaos: "var(--radius-random)",
-        huge: "var(--radius-large)",
+        lg: "var(--radius)",
+        md: "calc(var(--radius) - 2px)",
+        sm: "calc(var(--radius) - 4px)",
       },
       fontFamily: {
-        chaos: ['Comic Sans MS', 'cursive', 'serif', 'monospace'],
         professional: ['system-ui', 'sans-serif'],
       },
       keyframes: {

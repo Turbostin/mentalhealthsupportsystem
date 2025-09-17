@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Intentionally Poor Design System - Clashing colors and inconsistent styles */
+/* Professional + Fun Design System */
 
 @layer base {
   :root {
@@ -12,40 +12,46 @@
     --professional-primary: 210 100% 45%;
     --professional-border: 210 15% 85%;
 
-    /* Terrible clashing colors for main app */
-    --background: 300 100% 95%; /* Hot pink background */
-    --foreground: 60 100% 25%; /* Dark olive text */
+    /* Professional yet fun colors for main app */
+    --background: 210 20% 98%;
+    --foreground: 210 15% 20%;
 
-    --card: 120 100% 75%; /* Bright lime green */
-    --card-foreground: 280 100% 30%; /* Purple text */
+    --card: 0 0% 100%;
+    --card-foreground: 210 15% 20%;
 
-    --popover: 30 100% 70%; /* Orange */
-    --popover-foreground: 200 100% 20%; /* Dark blue */
+    --popover: 0 0% 100%;
+    --popover-foreground: 210 15% 20%;
 
-    --primary: 0 100% 60%; /* Hot red */
-    --primary-foreground: 60 100% 90%; /* Light yellow */
+    --primary: 270 95% 65%; /* Friendly purple */
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 270 100% 70%; /* Bright purple */
-    --secondary-foreground: 90 100% 20%; /* Dark green */
+    --secondary: 195 100% 75%; /* Calming blue */
+    --secondary-foreground: 210 15% 20%;
 
-    --muted: 180 100% 80%; /* Cyan */
-    --muted-foreground: 350 100% 30%; /* Dark pink */
+    --muted: 210 20% 95%;
+    --muted-foreground: 210 10% 45%;
 
-    --accent: 45 100% 65%; /* Bright orange */
-    --accent-foreground: 220 100% 15%; /* Dark blue */
+    --accent: 340 85% 70%; /* Warm pink accent */
+    --accent-foreground: 0 0% 100%;
 
-    --destructive: 120 100% 50%; /* Bright green (wrong for destructive) */
-    --destructive-foreground: 300 100% 20%; /* Dark magenta */
+    --destructive: 0 85% 60%;
+    --destructive-foreground: 0 0% 100%;
 
-    --border: 290 100% 60%; /* Bright purple border */
-    --input: 50 100% 85%; /* Light yellow input */
-    --ring: 10 100% 50%; /* Orange ring */
+    --border: 210 15% 85%;
+    --input: 210 15% 85%;
+    --ring: 270 95% 65%;
 
-    /* Inconsistent radius values */
-    --radius-small: 2px;
-    --radius-medium: 15px;
-    --radius-large: 50px;
-    --radius-random: 8px 25px 3px 40px;
+    --success: 140 85% 50%;
+    --warning: 45 95% 60%;
+    --info: 210 100% 60%;
+
+    /* Fun gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(270, 95%, 65%), hsl(195, 100%, 75%));
+    --gradient-card: linear-gradient(135deg, hsl(0, 0%, 100%), hsl(210, 20%, 99%));
+    --gradient-hero: linear-gradient(135deg, hsl(270, 95%, 65%), hsl(340, 85%, 70%));
+
+    /* Consistent radius values */
+    --radius: 0.75rem;
 
     --sidebar-background: 0 0% 98%;
 
@@ -113,70 +119,69 @@
   }
 }
 
-/* Intentionally bad custom styles */
+/* Professional + Fun custom styles */
 @layer components {
   .professional-page {
     @apply bg-[hsl(var(--professional-bg))] text-[hsl(var(--professional-text))];
   }
   
-  .terrible-font-mix {
-    font-family: 'Comic Sans MS', cursive, serif, monospace;
+  .gradient-hero {
+    background: var(--gradient-hero);
   }
   
-  .inconsistent-spacing {
-    padding: 5px 23px 8px 41px;
-    margin: 12px 3px 27px 9px;
+  .gradient-card {
+    background: var(--gradient-card);
   }
   
-  .random-transform {
-    transform: rotate(-2deg) skew(1deg);
+  .card-hover {
+    @apply transition-all duration-300 hover:shadow-lg hover:scale-105;
   }
   
-  .misaligned {
-    position: relative;
-    left: 13px;
-    top: -4px;
+  .mood-button {
+    @apply transition-all duration-200 hover:scale-105 active:scale-95;
   }
   
-  .outdated-gradient {
-    background: linear-gradient(45deg, #ff00ff, #00ffff, #ffff00, #ff8000);
-    background-size: 400% 400%;
-    animation: terrible-shimmer 3s ease-in-out infinite;
+  .floating-animation {
+    animation: float 6s ease-in-out infinite;
   }
   
-  .blink-text {
-    animation: blink 1.5s linear infinite;
+  .fade-in {
+    animation: fadeIn 0.6s ease-out;
   }
   
-  .bouncing {
-    animation: bounce 2s infinite;
+  .success-pulse {
+    animation: successPulse 2s ease-in-out infinite;
   }
 }
 
 @layer utilities {
-  .text-shadow-terrible {
-    text-shadow: 3px 3px 0px #ff00ff, -2px -2px 0px #00ffff;
+  .text-gradient {
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
   }
   
-  .border-chaos {
-    border: 3px dashed #ff0080;
-    border-radius: var(--radius-random);
+  .shadow-soft {
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  }
+  
+  .shadow-colorful {
+    box-shadow: 0 10px 25px -5px hsla(270, 95%, 65%, 0.2);
   }
 }
 
-@keyframes terrible-shimmer {
-  0%, 100% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
 }
 
-@keyframes blink {
-  0%, 50% { opacity: 1; }
-  51%, 100% { opacity: 0; }
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
-@keyframes bounce {
-  0%, 20%, 53%, 80%, 100% { transform: translate3d(0, 0, 0); }
-  40%, 43% { transform: translate3d(0, -8px, 0); }
-  70% { transform: translate3d(0, -4px, 0); }
-  90% { transform: translate3d(0, -2px, 0); }
+@keyframes successPulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
 }
