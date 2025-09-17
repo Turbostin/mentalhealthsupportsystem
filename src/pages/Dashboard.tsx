@@ -8,6 +8,16 @@ import { Progress } from "@/components/ui/progress";
 import { Separator } from "@/components/ui/separator";
 import { Heart, Brain, Moon, Sun, Activity, BookOpen, Users, Calendar, Target, Smile } from "lucide-react";
 
+// Import new components
+import CounselorBooking from "@/components/CounselorBooking";
+import EmergencyToolkit from "@/components/EmergencyToolkit";
+import WellnessGames from "@/components/WellnessGames";
+import HealthFacts from "@/components/HealthFacts";
+import ResourceVideos from "@/components/ResourceVideos";
+import FeedbackForm from "@/components/FeedbackForm";
+import WeeklyReportAdmin from "@/components/WeeklyReportAdmin";
+import ChatSessions from "@/components/ChatSessions";
+
 const Dashboard = () => {
   const [journalEntry, setJournalEntry] = useState("");
   const [selectedMood, setSelectedMood] = useState<string>("");
@@ -237,6 +247,39 @@ const Dashboard = () => {
                 </div>
               </CardContent>
             </Card>
+          </div>
+        </div>
+
+        <Separator className="my-8" />
+
+        {/* New Sections */}
+        <div className="space-y-8 fade-in">
+          {/* Counselor Booking */}
+          <CounselorBooking />
+
+          {/* Emergency Toolkit */}
+          <EmergencyToolkit />
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            {/* Wellness Games */}
+            <WellnessGames />
+            
+            {/* Health Facts */}
+            <HealthFacts />
+          </div>
+
+          {/* Resource Videos */}
+          <ResourceVideos />
+
+          {/* Chat Sessions */}
+          <ChatSessions />
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            {/* Feedback Form */}
+            <FeedbackForm />
+            
+            {/* Weekly Report for Admin */}
+            <WeeklyReportAdmin />
           </div>
         </div>
 
