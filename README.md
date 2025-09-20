@@ -2,7 +2,7 @@
 
 ## Project info
 
-**URL**: https://lovable.dev/projects/505ace63-924f-4c39-ba46-e99de69c1d1d
+**URL**: https://mentalhealthsupportsystem.lovable.app/
 
 
 Follow these steps:
