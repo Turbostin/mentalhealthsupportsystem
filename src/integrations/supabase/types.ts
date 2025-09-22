@@ -14,7 +14,168 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      counselor_patients: {
+        Row: {
+          assigned_at: string
+          counselor_id: string
+          id: string
+          is_active: boolean
+          patient_id: string
+        }
+        Insert: {
+          assigned_at?: string
+          counselor_id: string
+          id?: string
+          is_active?: boolean
+          patient_id: string
+        }
+        Update: {
+          assigned_at?: string
+          counselor_id?: string
+          id?: string
+          is_active?: boolean
+          patient_id?: string
+        }
+        Relationships: []
+      }
+      feedback: {
+        Row: {
+          category: string
+          created_at: string
+          id: string
+          message: string
+          rating: number | null
+          user_id: string
+        }
+        Insert: {
+          category: string
+          created_at?: string
+          id?: string
+          message: string
+          rating?: number | null
+          user_id: string
+        }
+        Update: {
+          category?: string
+          created_at?: string
+          id?: string
+          message?: string
+          rating?: number | null
+          user_id?: string
+        }
+        Relationships: []
+      }
+      journal_entries: {
+        Row: {
+          content: string
+          created_at: string
+          id: string
+          mood_rating: number | null
+          user_id: string
+        }
+        Insert: {
+          content: string
+          created_at?: string
+          id?: string
+          mood_rating?: number | null
+          user_id: string
+        }
+        Update: {
+          content?: string
+          created_at?: string
+          id?: string
+          mood_rating?: number | null
+          user_id?: string
+        }
+        Relationships: []
+      }
+      Profile: {
+        Row: {
+          avatar_url: string | null
+          created_at: string | null
+          id: string
+          username: string
+        }
+        Insert: {
+          avatar_url?: string | null
+          created_at?: string | null
+          id?: string
+          username?: string
+        }
+        Update: {
+          avatar_url?: string | null
+          created_at?: string | null
+          id?: string
+          username?: string
+        }
+        Relationships: []
+      }
+      profiles: {
+        Row: {
+          created_at: string
+          date_of_birth: string | null
+          email: string
+          full_name: string | null
+          id: string
+          phone: string | null
+          role: Database["public"]["Enums"]["user_role"]
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          created_at?: string
+          date_of_birth?: string | null
+          email: string
+          full_name?: string | null
+          id?: string
+          phone?: string | null
+          role?: Database["public"]["Enums"]["user_role"]
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          created_at?: string
+          date_of_birth?: string | null
+          email?: string
+          full_name?: string | null
+          id?: string
+          phone?: string | null
+          role?: Database["public"]["Enums"]["user_role"]
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
+      questionnaire_responses: {
+        Row: {
+          completed_at: string
+          id: string
+          questionnaire_type: string
+          responses: Json
+          severity_level: string
+          total_score: number
+          user_id: string
+        }
+        Insert: {
+          completed_at?: string
+          id?: string
+          questionnaire_type: string
+          responses: Json
+          severity_level: string
+          total_score: number
+          user_id: string
+        }
+        Update: {
+          completed_at?: string
+          id?: string
+          questionnaire_type?: string
+          responses?: Json
+          severity_level?: string
+          total_score?: number
+          user_id?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
@@ -23,7 +184,7 @@ export type Database = {
       [_ in never]: never
     }
     Enums: {
-      [_ in never]: never
+      user_role: "patient" | "counselor" | "admin"
     }
     CompositeTypes: {
       [_ in never]: never
@@ -150,6 +311,8 @@ export type CompositeTypes<
 
 export const Constants = {
   public: {
-    Enums: {},
+    Enums: {
+      user_role: ["patient", "counselor", "admin"],
+    },
   },
 } as const
